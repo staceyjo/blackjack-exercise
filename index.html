@@ -9,34 +9,114 @@
   - Loops (and nested loops) 
   - HTML and CSS -->
 
-<!-- The original code provided: -->
+
 <!DOCTYPE html>
+
+<!-- language is English-->
 <html lang="en">
+
+<!-- the <head> tag is a global attribute-->
 <head>
+    <!-- The Unicode Character Set: charset UTF- 8 is recommended for JavaScript 5 -->
   <meta charset="UTF-8">
+  
+    <!-- the viewport is the visible area of the web page, varies with device-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Blackjack</title>
+  
+    <!-- The title of my document/page tab-->
+  <title>Stacey's Blackjack Table</title>
+
+    <!-- HTML <script> source attribute, specifies the URL of an external script file-->
   <script src="scripts/main.js"></script>
 </head>
+
+  <!--HTML <body> tag defines the documents body. The <body> element contains all the 
+  contents of an HTML document, such as headings, paragraphs, images, hyperlinks, tables, etc-->
 <body>
+    <!-- The HTML DOM <div> OBJECT represents an element
+        <div> tags define a division or a section in an HTML document
+        <div> tag is used as a container for HTML elements- which is
+          then styled with CSS or manipulated with JavaScript
+        <div> tag is styled with the class or id attributes-->
+
+    <!-- HTML <class> ATTRIBUTES specify the class for an HTML element,
+        This attribute points to a class name in a CSS style sheet or 
+        can be used by JavaScript to access and manipulate elements 
+        with a specific class name.-->
+    
+    <!--The below <div> class is for the MESSAGE BOX element, 
+        and the specific id attribute are the MESSAGES
+        I can style both of these in CSS and manipulate them in JS-->
   <div class="message-box" id="messages"></div>
+
+    <!--The next <div> class is for the TABLE element,
+      and it currently has no specific ID attributes
+        it also contains 3 subclasses: two PLAYER sub classes; one for the DEALER
+        and one for the GAME PLAYER and one for buttons-->
   <div class="table">
+
+    <!-- 1 of 3: within the TABLE container element, there is another class 
+      defined as/with a value of PLAYER: So each PLAYER action will effect the TABLE -->
     <div class="player">
+
+      <!-- HTML <label> tag defines the label for an element
+        Within the first of two PLAYER class attributes
+        the label given is for the DEALER. 
+        Everything the DEALER does will effect this PLAYER class 
+        and the TABLE class elements-->
       <label class="player-name">Dealer: 
+
+        <!-- The <div> first PLAYER class labeled DEALER and within this class 
+          is a HTML <span> tag
+          
+            HTML <span> tags are inline containers used to mark up part of a text,
+            or part of a document. <span> HTML elements are generic phrasing
+            it can ben styled with CSS or manipulated with JS
+         
+            In this instance, the <span> id is for the DEALER POINTS
+            and within this span id is the subclass for POINTS-->
         <span id="dealer-points" class="points"></span>
       </label>
+
+        <!-- The 2nd <div> contained within the PLAYER-DEALER class is the DEALER HAND id and the class HAND -->
       <div id="dealer-hand" class="hand">
-        <!-- Dealer Hand -->
+       
+        <!-- This ends the DEALER HAND class elements and id attributes -->
       </div>
     </div>
+
+        <!-- 2 of 3: within the TABLE container element, there is another class 
+        defined as/with a value of PLAYER: So each PLAYER action will effect the TABLE -->
     <div class="player">
+
+        <!-- HTML <label> tag defines the label for an element
+          Within the second of two PLAYER class attributes
+          the label given is for the PLAYER. 
+          Everything the PLAYER does will effect this PLAYER class 
+          and the TABLE class elements-->
       <label class="player-name">Player: 
+
+          <!-- The <div> second PLAYER class labeled PLAYER and within this class 
+          is a HTML <span> tag
+          
+            HTML <span> tags are inline containers used to mark up part of a text,
+            or part of a document. <span> HTML elements are generic phrasing
+            it can ben styled with CSS or manipulated with JS
+         
+            In this instance, the <span> id is for the PLAYER POINTS
+            and within this span id is the subclass for POINTS-->
+
         <span id="player-points" class="points"></span>
       </label>
+
+       <!-- The 2nd <div> contained within the PLAYER-PLAYER class is the PLAYER HAND id and the class HAND -->
       <div id="player-hand" class="hand">
         <!-- Player Hand -->
       </div>
     </div>
+
+    <!-- 2 of 3: within the TABLE container element, there is another class 
+    defined as/with a value of PLAYER: So each PLAYER action will effect the TABLE -->
     <div class="buttons">
       <button id="deal-button" type="button">Deal</button>
       <button id="hit-button" type="button">Hit</button>
