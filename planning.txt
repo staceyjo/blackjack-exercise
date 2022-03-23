@@ -1,0 +1,292 @@
+Stacey's Blackjack Table- GROOMING
+
+Techniques used:
+  - Selecting DOM elements using JS
+  - Adding event listeners to DOM elements
+  - Creating new DOM elements
+  - Setting DOM element Attributes
+  - Using template strings
+  - Loops (and nested loops) 
+  - HTML and CSS
+
+THE PLAN: 
+
+STEP ONE: Familiarize yourself with the HTML and JS
+    - See comments in index.html file
+
+STEP TWO: Style the page to make it look more like a card Table
+
+    - Do not spend more than an hour, you can come back and then make it pretty
+
+    - If you want to just get straight to the interactvity, 
+        there is a stylesheet in the EXTRAS folder. You can link that stylesheet
+        from the head and move on to the next STEP
+
+STEP THREE: Cards on the Table
+
+    - The instructions mention hard coding the card first 
+
+        - Hard coding is putting something in the source code that cannot be 
+        changed, except by changing the source code of the program itself
+        so it stays constant
+
+    - STEP 3A: Start by adding the HTML for an <img> tag inside of the DEALER HAND 
+    or PLAYER HAND element
+
+    - STEP 3B: Then have them link by setting the source attribute or src to "card images" 
+    in the images folder
+
+STEP 4: Dealing the Cards
+        -  After you know what you want the HTML to look like, we need to remove the cards 
+        we created in step 3
+
+    - STEP 4a: Sounds like they want me to delete some code
+        ...which always makes me nervous
+    
+    - STEP 4b: This time we will generate them dynamically using JavaScript
+
+        - New elements can be dynamically created in JS with the help of the 
+        createElement() method
+
+    - STEP 4c: The attributes of the created element can be set using the setAttribute() method
+
+        - See example: 
+        https://www.geeksforgeeks.org/how-to-dynamically-create-new-elements-in-javascript/ 
+
+    - STEP 4d: When the DEAL button is clicked, deal 4 times
+
+        - Once to the player, once to the dealer, then to the player again, and then 
+        finally to the dealer once more
+
+            - How do i do this?
+    
+    - STEP 4e: Attach an event listener to the button
+
+    - STEP 4f: Create a new image element
+
+    - STEP 4g: Append the newly created image element to the DEALER HAND & the PLAYER HAND 
+    elements
+
+        - You can use the same card at this point
+
+STEP 5: Hit Me 
+
+    - Two things will happen when this button is pushed (a code repeat)
+
+    - The instructions ask a question/ give a hint to "Write a function to deal from the card 
+    to whichever player we chose?" 
+
+        - STEP 5a: When the HIT button is clicked, deal one more card to the player
+            - Use the SAME card for now
+        
+        - STEP 5b: Then deal one more card to the dealer
+
+STEP 6: Creating a Deck
+
+    - STEP 6a: Create a deck of cards by making our deck an array of objects
+        
+        - STEP 6b: Each one of the objects in the deck will represent a card
+
+        - STEP 6c: Each card will have a rank and a suit
+
+            - N.B. (or nota bene) : the rank is NOT the same as points
+
+            - For example: 
+                King of Hearts: 
+                { rank: 13, suit, "hearts"}
+
+                4 of Spades: 
+                { rank 4, suit, "spades"}
+
+                Ace of Diamonds: 
+                { rank: 1, suit: "diamonds"}
+
+            - STEP 6d: Instead of manually coding the whole deck- Write a function to generate 
+            a deck of 52 cards
+
+                - Create a function called buldDeck that will return a new array with 52 card 
+                objects
+
+                - Keep in mind there are 4 suits: diamonds, clubs, hearts and spades
+
+                    - STEP 6e: Rank each suit from 1 -13
+
+STEP 7: Deal the Deck
+
+    - We have the deck, now we need to create something to represent the 
+    PLAYER HANDS and the DEALER HANDS
+
+        - STEP 7a: Create two new arrays: dealerHand and playerHand
+
+            - These arrays of cards will be used later to calculate the total points for the 
+            Hand
+
+        - STEP 7b: Adjust the code so that when we click the "Deal" button, it will remove 
+        a card from the deck
+
+            - How do I do this?
+
+        - STEP 7c: Then place that card into the playerHand array
+
+            - Another italic hint in the instructions, in the form of a question: Is there an 
+            array method that allows us to remove and return an item from an array
+
+            - How do I do this?
+
+            - It should still deal 1 card to player, then 1 card to dealer, then repeat 1 card 
+            to player and one card to dealer
+
+STEP 8: Image From Cards
+
+    - There is a folder of images with the following name structure: 
+        images/{rank}_of_{suit}.png
+
+    - So for example the card naming convention will look like this: 
+        - 5_of_hearts.png
+        - ace_of_spades.png
+        - jack_of_diamonds.png
+
+    - STEP 8a: To put a card visually on the page, we need to insert an image tag
+
+        - For example: <img src="/page/images/5_of_hearts.png" alt="5 of hearts" />
+
+        * Before we displayed the images using the full, hard-coded URL for a specific card
+
+        * Now, we want to use the card objects to set the source attribute based on the 
+        card objects
+
+    - STEP 8b: Write a function called getCardImage that will take a card object 
+    and then return an image element containing the correct image URL for that card
+
+        - For example (don't use this code), the following code takes a single card 
+        and attaches the appropriate card image to the body of the page: 
+
+        const card = { rank: 13, suit, "hearts"};
+
+        const newCardImage = getCardImage(card)
+
+        document.body.append(newCardImage)
+
+STEP 9: Render Hands
+
+        - Now we have a way to create an image based on a card object
+
+        - Now we need to display the player hand and the dealer hand on the page
+
+    STEP 9a: Write a function render that loops over the dealerHand and playerHand arrays and 
+    appends a new card image to the appropriate elements for each card in the hands 
+
+STEP 10: Shuffle the Deck
+
+    - STEP 10a: Write a function to shuffle the deck
+
+        - Example strategies for shuffling the deck: 
+
+            1. For a fixed number of times, randomly choose 2 cards within the deck and swap them
+
+                - How do I do this?
+
+            2. Create a new array, randomly choose one card after another from the original 
+            array and push it to the new array
+
+                - How do I do this?
+
+            3. Search on StackOverflow for a solution to "shuffle a javascript array
+
+    - STEP 10b: Then use the shuffle function to shuffle the deck when you hit the deal button
+    but make sure it shuffles before you deal the cards
+
+STEP 11: Calculate Points for a Hand
+
+    - STEP 11a: Write a function to calculatePoints that takes in an array of card objects 
+    and returns the points for that hand
+
+        For example: 
+
+            const playerHand = [
+                { rank: 10, suit: "diamonds"}, 
+                { rank: 12, suit: "spades"}
+            ]; 
+            const playerPoints = calculatePoints(playerHand);
+            console.log(playerPoints); 
+            //20
+
+            const playerHand = [
+                { rank: 10, suit: "diamonds"}, 
+                { rank: 1, suit: "clubs"}
+            ];
+            const playerPoints = calculatePoints(playerHand);
+            console.log(playerPoints);
+            //21
+
+STEP 12: Display points
+    - STEP 12a: After dealing a card, display the current points for the dealer and the player
+
+        - How do I do this?
+
+            - Consider adding this code to your render function
+    
+STEP 13: Busts
+    - STEP 13a: Check for busts after each card is dealt
+        
+        - A bust is when either the dealer or the player's hand goes over 21
+        - When that happens, they lose
+
+    - STEP 13b: If there is a bust, display a message on the page saying that they busted
+
+        - There is a <div> with an id of messages already on the page that you can use to do this
+
+STEP 14: Player Stands
+
+    - When the "Stand" button is clicked, the player doesn't want any more cards  
+
+    - STEP 14a: Deal cards back to the dealer until he/she reaches 17 points or more
+
+STEP 15: Determine Winner
+
+    - When the dealer's turn is over, whoever has the most points wins! 
+
+    - STEP 15a: Determine the winner
+        - How do I do this?
+    
+    - STEP 15b: Display a message to show who window
+
+    - STEP 15c: Also disable the "Deal", "Hit" and "Stand" buttons at this point
+
+STEP 16: Restart the Game 
+
+    - STEP 16a: Last step is to reset the game
+
+        - How do i do this?
+        - Is there code I can reuse?
+        - Is there a way to reset the dealer and the player hands?
+        - What about the buttons?
+        - Do they need to be reenabled?
+        - What about the messages?
+
+BONUS/ EXTRA CREDIT: 
+
+    - If you complete all of the above functionality, 
+    you can choose one or more of these extra credit features to implement:
+    
+        1. Create a way to play the game with 3 decks of cards (156 cards) 
+        or six deck of cards (312 cards)
+
+        2. Use an animation to reveal a card when it is drawn.
+
+        3. Hide dealer's hole card, and reveal it before dealer's turn.
+
+        4. Keep track of wins vs losses.
+
+        5. Add betting structure instead of wins vs losses. 
+
+            - The player with start out with a certain amount of money - say $500. 
+            
+            - There will be a minimum bet of $5. 
+
+            - The player can choose an amount to bet before each hand.
+
+
+
+
+
